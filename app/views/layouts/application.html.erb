@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html style="min-height: 100%">
+  <head>
+    <title>OWCBangalore</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/browsertag/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/browsertag/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/browsertag/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/browsertag/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/browsertag/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/browsertag/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/browsertag/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/browsertag/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/browsertag/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/browsertag/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/browsertag/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/browsertag/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/browsertag/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <%= csrf_meta_tags %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield :stylesheet %>
+
+  </head>
+<body>
+<div class="content">
+    <% unless flash.empty? %>
+         <script type="text/javascript">
+              <% flash.each do |f| %>
+            <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+             toastr['<%= type %>']('<%= f[1] %>');
+         <% end %>
+         </script>
+    <% end %>
+    <style type="text/css">body { margin: 0; padding-top: 80px; height: 100%; font-family: 'Open Sans',Arial,sans-serif;}</style>
+  <%= nav_bar brand: image_tag("nav-logo.png"), fixed: :top, responsive: true do %>
+    <div id="memb-name">
+        <% if current_user %>
+        <%= "Hello, #{current_user.first_name}" %>
+        <% end %>
+    </div>
+    <%= menu_group do %>
+        <%= menu_item "Home", root_path %>
+        <%= drop_down "Bangalore" do %>
+            <%= menu_item "Moving to Bangalore", moving_to_path %>
+            <%= menu_item "Life if Bangalore", life_in_path %>
+        <% end %>
+        <%= drop_down "Membership" do %>
+            <%= menu_item "New Members", new_member_path %>
+            <%= menu_item "Renew Membership", renew_membership_path %>
+            <%= menu_item "Publications", publication_path %>
+            <%= menu_item "Volunteer Opportunities", volunteer_path %>
+            <%= menu_item "Public Calendar", public_calendar_path %>
+        <% end %>
+        <%= drop_down "Our Work" do %>
+            <%= menu_item "Charities", charity_map_path %>
+            <%= menu_item "Contributions" %>
+            <%= menu_item "Fundraising" %>
+            <%= menu_item "Social Support Group" %>
+        <% end %>
+        <% if current_user %>
+        <%= drop_down "Member's Only" do %>
+            <%= menu_item "Chat Room" %>
+            <%= menu_item "Member Calendar" %>
+            <%= menu_item "Board Members" %>
+            <%= menu_item "Payment Gateway" %>
+        <% end %>
+        <% end %>
+        <% if current_user %>
+            <%= menu_item " " %>
+            <%= menu_item " " %>
+            <%= menu_item " " %>
+            <%= menu_item " " %>
+
+            <%= drop_down "<i class='fa fa-envelope fa-fw'></i>(#{unread_messages_count})" do %>
+                
+                    <%= menu_item render partial: 'layouts/dropinbox' %>
+                
+            <% end %>
+            <% if current_user.superadmin_role == true %>
+                <%= drop_down "Admin" do %>
+                    <%= menu_item "Admin Dashboard", rails_admin_path %>
+                    <%= menu_item "Analytics", ahoy_path %>
+                <% end %>
+            <% end %>
+            <%= menu_item "Log Out", destroy_session_path %>
+        <% else %>
+          <%= drop_down "Login" do %>
+            <%= form_for :user, url: "/login_user", html: { class: "loginbox pull-right" } do |f| %>
+                        <%= f.label :email %>
+                        <%= f.text_field :email, required: false, autofocus: true, id: "inputs" %>
+                        <%= f.label :password, id: "pass" %>
+                        <%= f.password_field :password, required: false, id: "inputs" %>
+                         <%= f.submit "Login", id: "loginbutton", class: "btn btn-success" %>
+                      <% end %>
+
+              <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+    <div></div>
+    <%= yield %>
+    <footer id="myFooter">
+    <%= yield :footer %>
+        <div class="footer-copyright" id="permfoot">
+            <p>© 2017 www.owcbangalore.org - All Rights Reserved </p>
+            <div id="time">
+            <p>Current Time in Bangalore: <%= Time.zone.now.strftime('%b %a, %d, %y - %H:%M (%I:%m %p)')   %></p>
+            </div>
+            <div id="foot-links">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li> / </li>
+                    <li><a href="#">About</a></li>
+                    <li> / </li>
+                    <li><a href="#">Contact</a></li>
+                    <li> / </li>
+                    <li><a href="#">Legal</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+</div>
+
+  </body>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-96027501-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>

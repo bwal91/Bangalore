@@ -1,0 +1,34 @@
+<%= content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'info', media: 'all', 'data-turbolinks-track': 'reload'  %>
+<% end %>
+<style type="text/css">body{height: 100%; overflow: hidden;} #myFooter {bottom: 0; position: fixed; width: 100%;}</style>
+		<div id="wrapper" style="padding-top: 15px;">
+			<div id="sidebar-wrapper" class="col-sm-2">
+		        <ul id="sidebar" class="nav nav-stacked affix">
+			        <li><a href="/moving_to"><i class="fa fa-fw fa-home"></i> Home</a></li>
+			        <li><%= link_to accomodations_path, :remote => true do %><span>Accomodations</span><% end %></li>
+			        <li><%= link_to banking_path, :remote => true do %><span>Banking</span><% end %></li>
+		          	<li><%= link_to healthcare_path, :remote => true do %><span>Healthcare</span><% end %></li>
+		          	<li><%= link_to pets_path, :remote => true do %><span>Pets</span><% end %></li>
+		          	<li><%= link_to residency_path, :remote => true do %><span>Residency</span><% end %></li>
+		          	<li><%= link_to safe_environments_path, :remote => true do %><span>Safe Environments</span><% end %></li>
+		          	<li><%= link_to schools_path, :remote => true do %><span>International Schools</span><% end %></li>
+		          	<li><%= link_to transportation_path, :remote => true do %><span>Transportation</span><% end %></li>
+		          	<li><%= link_to life_in_path, :remote => true do %><span>Life in Bangalore</span><% end %></li>
+			    </ul>
+			</div>
+			<div id="main-wrapper"  class="col-md-10 pull-right">
+				<div id="main" style="overflow-y: auto;">
+					<div class="slide-1"></div>
+			          <div class="hero">
+			            <hgroup>
+			                <h1>Welcome to</h1>
+			                <h3>Bangalore</h3>
+			            </hgroup>
+			          </div>
+
+
+				</div>
+			</div>
+
+		</div>
