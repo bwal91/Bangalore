@@ -73,7 +73,7 @@ gem 'activerecord-session_store'
 
 group :production do
   gem 'informant-rails'
-  # gem 'unicorn'
+  gem 'unicorn'
 end
 
 group :development, :test do
