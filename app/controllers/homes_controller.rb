@@ -3,11 +3,11 @@ class HomesController < ApplicationController
   before_action :authenticate_user!, :only => [:public_calendar, :board_members]
   # Home Page
   def index
-    @main1 = MainPicture.find(1)
-    @main2 = MainPicture.find(2)
-    @main3 = MainPicture.find(3)
-    @main4 = MainPicture.find(4)
-    @main5 = MainPicture.find(5)
+    # @main1 = MainPicture.find(1)
+    # @main2 = MainPicture.find(2)
+    # @main3 = MainPicture.find(3)
+    # @main4 = MainPicture.find(4)
+    # @main5 = MainPicture.find(5)
   end
 
   def test

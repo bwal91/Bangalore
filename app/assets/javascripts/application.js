@@ -31,7 +31,7 @@
   "hideEasing": "linear",
   "showMethod": "fadeIn",
   "hideMethod": "fadeOut"
-  }
+  };
   
 $(document).ready(function () {
   $('.navbar .dropdown').hover(function () {
@@ -65,7 +65,7 @@ $(document).ready(function () {
         trigger.addClass('is-open');
         isClosed = true;
       }
-  }
+  });
 
   $('[data-toggle="offcanvas"]').click(function () {
         $('#wrapper').toggleClass('toggled');

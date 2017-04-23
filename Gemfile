@@ -11,7 +11,7 @@ gem 'hirb'
 gem 'rails', '~> 5.0.1'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '5.0.6'
-gem 'uglifier'
+gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 
 gem 'jquery-rails'
@@ -30,6 +30,8 @@ gem 'websocket', '~> 1.0'
 gem 'font-awesome-sass'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
+gem 'will_paginate'
+gem 'binding_of_caller'
 
 gem 'haml-rails'
 gem 'autoprefixer-rails'
@@ -62,7 +64,7 @@ gem 'derailed', group: :development
 # Search PDF Gems
 # gem 'elasticsearch-model'
 # gem 'elasticsearch-rails'
-
+gem 'therubyracer'
 gem 'henkei'
 gem 'pdfjs_viewer-rails'
 gem 'pdf-reader'
@@ -78,7 +80,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'better_errors'
-  gem 'therubyracer'
+ 
 end
 
 group :development do
