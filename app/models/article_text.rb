@@ -1,7 +1,7 @@
-require 'elasticsearch/model'
+# require 'elasticsearch/model'
 class ArticleText < ApplicationRecord
-	include Elasticsearch::Model
-  	include Elasticsearch::Model::Callbacks
+	# include Elasticsearch::Model
+ #  	include Elasticsearch::Model::Callbacks
 
 	settings index: { number_of_shards: 1 } do
 	    mappings dynamic: 'false' do
