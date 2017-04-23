@@ -69,11 +69,11 @@ gem 'henkei'
 gem 'pdfjs_viewer-rails'
 gem 'pdf-reader'
 gem 'activerecord-session_store'
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 
 group :production do
   gem 'informant-rails'
-  gem 'unicorn'
+  # gem 'unicorn'
 end
 
 group :development, :test do
