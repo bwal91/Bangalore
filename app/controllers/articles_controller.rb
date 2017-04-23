@@ -1,4 +1,4 @@
-require 'elasticsearch/model'
+# require 'elasticsearch/model'
 class ArticlesController < ApplicationController
 	def index
 		# session[:text] = nil
