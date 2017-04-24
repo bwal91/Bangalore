@@ -7,10 +7,10 @@ require 'v8'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 ENV['RAILS_ADMIN_THEME'] = 'rollincode'
-
 module Bangalore
   class Application < Rails::Application
 
+	config.serve_static_assets = true
   	config.time_zone = 'Mumbai'
 
     config.autoload_paths += %W(#{config.root}/lib)
