@@ -93,13 +93,15 @@
               transform: translate3d(-50%,-50%,0);
 }
 #carh1 {
-    font-size: 6em;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
+  text-align: center;
+  font-size: 4em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 #carh3 {
-  font-size: 4em;
+  text-align: center;
+  font-size: 3em;
   font-weight: bold;
 }
 
@@ -113,6 +115,28 @@
 }
 .fade-carousel .carousel-inner .item.active .hero {
     opacity: 1;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s;
+        -ms-transition: 2s all ease-in-out .1s;
+         -o-transition: 2s all ease-in-out .1s;
+            transition: 2s all ease-in-out .1s;
+}
+
+.banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 0;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
     -webkit-transition: 2s all ease-in-out .1s;
        -moz-transition: 2s all ease-in-out .1s;
         -ms-transition: 2s all ease-in-out .1s;
@@ -135,39 +159,47 @@
 /********************************/
 /*       Slides backgrounds     */
 /********************************/
-.fade-carousel .slides .slide-1 {
-  height: 580px;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+// .fade-carousel .slides .slide-1 {
+//   height: 580px;
+//   background-size: cover;
+//   background-position: center center;
+//   background-repeat: no-repeat;
 
-}
+// }
 .fade-carousel .slides .slide-1,
 .fade-carousel .slides .slide-2,
 .fade-carousel .slides .slide-3,
 .fade-carousel .slides .slide-4,
-.fade-carousel .slides .slide-5 {
-  height: 580px;
+.fade-carousel .slides .slide-5,
+.fade-carousel .slides .slide-6,
+.fade-carousel .slides .slide-7,
+.fade-carousel .slides .slide-8 {
+  height: 600px;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 
 }
-.fade-carousel .slides .slide-1 {
-  background-image: url(/assets/main/1.jpg);
+.main_car {
+  height: 100%;
+  width: 100%;
 }
-.fade-carousel .slides .slide-2 {
-  background-image: url(/assets/main/2.jpg);
-}
-.fade-carousel .slides .slide-3 {
-  background-image: url(/assets/main/3.jpg);
-}
-.fade-carousel .slides .slide-4 {
-  background-image: url(/assets/main/4.jpg);
-}
-.fade-carousel .slides .slide-5 {
-  background-image: url(/assets/main/5.jpg);
-}
+// .fade-carousel .slides .slide-1 {
+//   background-image: url(/assets/main/1.jpg);
+// }
+// .fade-carousel .slides .slide-2 {
+//   background-image: url(/assets/main/2.jpg);
+// }
+// .fade-carousel .slides .slide-3 {
+//   background-image: url(/assets/main/3.jpg);
+// }
+// .fade-carousel .slides .slide-4 {
+//   background-image: url(/assets/main/4.jpg);
+// }
+// .fade-carousel .slides .slide-5 {
+//   background-image: url(/assets/main/5.jpg);
+// }
+
 
 /********************************/
 /*          Media Queries       */

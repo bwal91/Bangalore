@@ -75,6 +75,10 @@ GEM
     arel (7.1.4)
     autoprefixer-rails (6.7.7.2)
       execjs
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bcrypt (3.1.11)
     benchmark-ips (2.7.2)
     better_errors (2.1.1)
@@ -119,6 +123,7 @@ GEM
     coffee-script-source (1.12.2)
     commonjs (0.2.7)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
     debug_inspector (0.0.2)
     derailed (0.1.0)
       derailed_benchmarks
@@ -292,6 +297,12 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+    react-rails (2.1.0)
+      babel-transpiler (>= 0.7.0)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     redis (3.3.3)
     ref (2.0.0)
     referer-parser (0.3.0)
@@ -416,6 +427,7 @@ DEPENDENCIES
   rails (~> 5.0.1)
   rails_admin
   rails_admin_rollincode (~> 1.0)
+  react-rails
   redis (~> 3.0)
   remotipart!
   rubyzip (~> 1.0)

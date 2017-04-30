@@ -1,8 +1,8 @@
 <%= content_for :stylesheet do %>
   <%= stylesheet_link_tag 'info', media: 'all', 'data-turbolinks-track': 'reload'  %>
 <% end %>
-<style type="text/css">body{height: 100%; overflow: hidden;} #myFooter {bottom: 0; position: fixed; width: 100%;}</style>
-		<div id="wrapper" style="padding-top: 15px;">
+<style type="text/css">#myFooter {bottom: 0; position: fixed; width: 100%;}</style>
+		<div id="wrapper" style="padding-top: 35px; overflow: hidden; height: 100%;">
 			<div id="sidebar-wrapper" class="col-sm-2">
 		        <ul id="sidebar" class="nav nav-stacked affix">
 			        <li><a href="/moving_to"><i class="fa fa-fw fa-home"></i> Home</a></li>
@@ -18,8 +18,8 @@
 			    </ul>
 			</div>
 			<div id="main-wrapper"  class="col-md-10 pull-right">
-				<div id="main" style="overflow-y: auto;">
-					<div class="slide-1"></div>
+				<div id="main">
+					<div class="slide-1"><img src="/assets/welcome.jpg" class="main_car"></div>
 			          <div class="hero">
 			            <hgroup>
 			                <h1>Welcome to</h1>
@@ -32,3 +32,4 @@
 			</div>
 
 		</div>
+

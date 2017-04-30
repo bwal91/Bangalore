@@ -44,10 +44,7 @@
     <% end %>
     <style type="text/css">body { margin: 0; padding-top: 80px; height: 100%; font-family: 'Open Sans',Arial,sans-serif;}</style>
   <%= nav_bar brand: image_tag("nav-logo.png"), fixed: :top, responsive: true do %>
-    <div id="memb-name">
-        <% if current_user %>
-        <%= "Hello, #{current_user.first_name}" %>
-        <% end %>
+    <div id="memb-name" style="margin-top: 1.5%;">
     </div>
     <%= menu_group do %>
         <%= menu_item "Home", root_path %>
@@ -58,35 +55,36 @@
         <%= drop_down "Membership" do %>
             <%= menu_item "New Members", new_member_path %>
             <%= menu_item "Renew Membership", renew_membership_path %>
-            <%= menu_item "Publications", publication_path %>
-            <%= menu_item "Volunteer Opportunities", volunteer_path %>
-            <%= menu_item "Public Calendar", public_calendar_path %>
+            <%= menu_item "Publications", publication_path, style: "display:none;" %>
+            <%= menu_item "Volunteer Opportunities", volunteer_path, style: "display:none;" %>
+            <%= menu_item "Public Calendar", public_calendar_path, style: "display:none;" %>
         <% end %>
         <%= drop_down "Our Work" do %>
             <%= menu_item "Charities", charity_map_path %>
+            <% if false %>
             <%= menu_item "Contributions" %>
-            <%= menu_item "Fundraising" %>
+            <%= menu_item "Fundraising"  %>
             <%= menu_item "Social Support Group" %>
+            <% end %>
         <% end %>
         <% if current_user %>
         <%= drop_down "Member's Only" do %>
-            <%= menu_item "Chat Room" %>
+            <%-# menu_item "Chat Room" -%>
             <%= menu_item "Member Calendar" %>
-            <%= menu_item "Board Members" %>
+            <%-# menu_item "Board Members" -%>
             <%= menu_item "Payment Gateway" %>
         <% end %>
         <% end %>
         <% if current_user %>
             <%= menu_item " " %>
-            <%= menu_item " " %>
-            <%= menu_item " " %>
-            <%= menu_item " " %>
-
+            <% if false %>
             <%= drop_down "<i class='fa fa-envelope fa-fw'></i>(#{unread_messages_count})" do %>
                 
                     <%= menu_item render partial: 'layouts/dropinbox' %>
                 
             <% end %>
+            <% end %>
+            <%= menu_item "Hello, #{current_user.first_name}" %>
             <% if current_user.superadmin_role == true %>
                 <%= drop_down "Admin" do %>
                     <%= menu_item "Admin Dashboard", rails_admin_path %>

@@ -71,6 +71,8 @@ gem 'pdf-reader'
 gem 'activerecord-session_store'
 # gem 'newrelic_rpm'
 
+gem 'react-rails'
+
 group :production do
   gem 'informant-rails'
 end
